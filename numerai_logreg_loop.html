@@ -11763,15 +11763,15 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
-<span class="kn">from</span> <span class="nn">tsne</span> <span class="kn">import</span> <span class="n">bh_sne</span>
-<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">decomposition</span>
-<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">PolynomialFeatures</span>
-<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">preprocessing</span>
-<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
-<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">linear_model</span>
-<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">log_loss</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">tsne</span> <span class="k">import</span> <span class="n">bh_sne</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="k">import</span> <span class="n">decomposition</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="k">import</span> <span class="n">PolynomialFeatures</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="k">import</span> <span class="n">preprocessing</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="k">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="k">import</span> <span class="n">linear_model</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="k">import</span> <span class="n">log_loss</span>
 </pre></div>
 
 </div>
@@ -11794,8 +11794,8 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">train</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../numerai_datasets/numerai_training_data.csv&quot;</span><span class="p">)</span>
-<span class="n">combined</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../numerai_datasets/numerai_tournament_data.csv&quot;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">train</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;.../numerai_datasets/numerai_training_data.csv&quot;</span><span class="p">)</span>
+<span class="n">combined</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;.../numerai_datasets/numerai_tournament_data.csv&quot;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -11819,20 +11819,20 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Seperate training data from test data</span>
-<span class="n">merged</span> <span class="o">=</span> <span class="n">combined</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">train</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">indicator</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Seperate training data from test data</span>
+<span class="n">merged</span> <span class="o">=</span> <span class="n">combined</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">train</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">indicator</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">test</span> <span class="o">=</span> <span class="n">combined</span><span class="p">[</span><span class="n">merged</span><span class="p">[</span><span class="s1">&#39;_merge&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;left_only&#39;</span><span class="p">]</span>
 
 <span class="c1"># Seperate the target data and test_id to create clean target and features</span>
 <span class="n">target</span> <span class="o">=</span> <span class="n">train</span><span class="p">[</span><span class="s1">&#39;target&#39;</span><span class="p">]</span>
 <span class="n">t_id</span> <span class="o">=</span> <span class="n">test</span><span class="p">[</span><span class="s1">&#39;t_id&#39;</span><span class="p">]</span>
-<span class="n">t_id</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">t_id</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="k">del</span> <span class="n">train</span><span class="p">[</span><span class="s1">&#39;target&#39;</span><span class="p">]</span>
 <span class="k">del</span> <span class="n">test</span><span class="p">[</span><span class="s1">&#39;t_id&#39;</span><span class="p">]</span>
 
-<span class="k">print</span> <span class="n">target</span><span class="o">.</span><span class="n">shape</span>
-<span class="k">print</span> <span class="n">train</span><span class="o">.</span><span class="n">shape</span>
+<span class="nb">print</span> <span class="n">target</span><span class="o">.</span><span class="n">shape</span>
+<span class="nb">print</span> <span class="n">train</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 
 </div>
@@ -11880,7 +11880,7 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="k">import</span> <span class="n">train_test_split</span>
 
 <span class="c1"># Split the dataset in two equal parts</span>
 <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">train</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">stratify</span><span class="o">=</span> <span class="n">target</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.15</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">23</span><span class="p">)</span>
@@ -11906,16 +11906,16 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">linear_model</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="k">import</span> <span class="n">linear_model</span>
 <span class="n">reg</span> <span class="o">=</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">LogisticRegressionCV</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">23</span><span class="p">)</span>
 
 <span class="n">model</span> <span class="o">=</span> <span class="n">reg</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span><span class="n">y_train</span><span class="p">)</span>
 <span class="n">Y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
 
-<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">log_loss</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="k">import</span> <span class="n">log_loss</span>
 
 <span class="n">score_log_reg</span> <span class="o">=</span> <span class="n">log_loss</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">Y_pred</span><span class="p">)</span>
-<span class="k">print</span> <span class="s2">&quot;Logloss for Logistic Regression:&quot;</span><span class="p">,</span> <span class="n">score_log_reg</span>
+<span class="nb">print</span> <span class="s2">&quot;Logloss for Logistic Regression:&quot;</span><span class="p">,</span> <span class="n">score_log_reg</span>
 </pre></div>
 
 </div>
@@ -11962,11 +11962,11 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">poly</span> <span class="o">=</span> <span class="n">PolynomialFeatures</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">poly</span> <span class="o">=</span> <span class="n">PolynomialFeatures</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">polyfeatures</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">poly</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">train</span><span class="p">))</span>
 <span class="c1"># drop first column that only contains 1&#39;s</span>
 <span class="n">polyfeatures</span> <span class="o">=</span> <span class="n">polyfeatures</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">polyfeatures</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="k">print</span> <span class="n">polyfeatures</span><span class="o">.</span><span class="n">shape</span>
+<span class="nb">print</span> <span class="n">polyfeatures</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 
 </div>
@@ -12003,20 +12003,20 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Split the dataset into a 85% traning and 15% testing set</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Split the dataset into a 85% traning and 15% testing set</span>
 <span class="n">X_trainp</span><span class="p">,</span> <span class="n">X_testp</span><span class="p">,</span> <span class="n">y_trainp</span><span class="p">,</span> <span class="n">y_testp</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">polyfeatures</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">stratify</span><span class="o">=</span> <span class="n">target</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.15</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
 
 
-<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">linear_model</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="k">import</span> <span class="n">linear_model</span>
 <span class="n">reg</span> <span class="o">=</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">LogisticRegressionCV</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="n">model</span> <span class="o">=</span> <span class="n">reg</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_trainp</span><span class="p">,</span><span class="n">y_trainp</span><span class="p">)</span>
 <span class="n">Y_predp</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_testp</span><span class="p">)</span>
 
-<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">log_loss</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="k">import</span> <span class="n">log_loss</span>
 
 <span class="n">score_log_reg</span> <span class="o">=</span> <span class="n">log_loss</span><span class="p">(</span><span class="n">y_testp</span><span class="p">,</span> <span class="n">Y_predp</span><span class="p">)</span>
-<span class="k">print</span> <span class="s2">&quot;Logloss for Logistic Regression:&quot;</span><span class="p">,</span> <span class="n">score_log_reg</span>
+<span class="nb">print</span> <span class="s2">&quot;Logloss for Logistic Regression:&quot;</span><span class="p">,</span> <span class="n">score_log_reg</span>
 </pre></div>
 
 </div>
@@ -12063,17 +12063,17 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># calculate TSNE features</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># calculate TSNE features</span>
 <span class="k">def</span> <span class="nf">features_tsne</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
     <span class="n">features_tsne</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">bh_sne</span><span class="p">(</span><span class="n">X</span><span class="p">))</span>
-    <span class="n">features_tsne</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">features_tsne</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">features_tsne</span>
 
 <span class="c1"># calculate PCA features</span>
 <span class="k">def</span> <span class="nf">features_pca</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
     <span class="n">pca</span> <span class="o">=</span> <span class="n">decomposition</span><span class="o">.</span><span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
     <span class="n">features_pca</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">pca</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">))</span>
-    <span class="n">features_pca</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">features_pca</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">features_pca</span>
 
 <span class="c1"># create polynomial and interaction features</span>
@@ -12082,7 +12082,7 @@ div#notebook {
     <span class="n">polyfeatures</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">poly</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">))</span>
     <span class="c1"># drop first column that only contains 1&#39;s</span>
     <span class="n">polyfeatures</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">polyfeatures</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">polyfeatures</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
-    <span class="k">print</span> <span class="n">polyfeatures</span><span class="o">.</span><span class="n">shape</span>
+    <span class="nb">print</span> <span class="n">polyfeatures</span><span class="o">.</span><span class="n">shape</span>
     <span class="k">return</span> <span class="n">polyfeatures</span>
 
 <span class="c1"># create scale features</span>
@@ -12111,10 +12111,10 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">all_features</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">train</span><span class="p">,</span> <span class="n">test</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">all_features</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">all_features</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">train</span><span class="p">,</span> <span class="n">test</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">all_features</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-<span class="k">print</span> <span class="n">all_features</span><span class="o">.</span><span class="n">shape</span>
+<span class="nb">print</span> <span class="n">all_features</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 
 </div>
@@ -12141,12 +12141,12 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span> <span class="s2">&quot;calculating tsne features&quot;</span>
-<span class="k">print</span> <span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span> <span class="s2">&quot;calculating tsne features&quot;</span>
+<span class="nb">print</span> <span class="p">()</span>
 <span class="n">f_tsne</span> <span class="o">=</span> <span class="n">features_tsne</span><span class="p">(</span><span class="n">all_features</span><span class="p">)</span>
 
-<span class="k">print</span> <span class="s2">&quot;calculating pca features&quot;</span>
-<span class="k">print</span> <span class="p">()</span>
+<span class="nb">print</span> <span class="s2">&quot;calculating pca features&quot;</span>
+<span class="nb">print</span> <span class="p">()</span>
 <span class="n">f_pca</span> <span class="o">=</span> <span class="n">features_pca</span><span class="p">(</span><span class="n">all_features</span><span class="p">)</span>
 
 <span class="c1"># merge new tsne and pca features with the original features</span>
@@ -12168,14 +12168,14 @@ div#notebook {
 <span class="c1"># set algorithym to logistic regression</span>
 <span class="n">reg</span> <span class="o">=</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">LogisticRegressionCV</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
 
-<span class="k">print</span> <span class="s2">&quot;Training model . . .&quot;</span>
-<span class="k">print</span> <span class="p">()</span>
+<span class="nb">print</span> <span class="s2">&quot;Training model . . .&quot;</span>
+<span class="nb">print</span> <span class="p">()</span>
 <span class="n">model</span> <span class="o">=</span> <span class="n">reg</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span><span class="n">y_train</span><span class="p">)</span>
-<span class="k">print</span> <span class="s2">&quot;Creating training predictions . . .&quot;</span>
-<span class="k">print</span> <span class="p">()</span>
+<span class="nb">print</span> <span class="s2">&quot;Creating training predictions . . .&quot;</span>
+<span class="nb">print</span> <span class="p">()</span>
 <span class="n">Y_predp</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
 <span class="n">score_lr</span> <span class="o">=</span> <span class="n">log_loss</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">Y_predp</span><span class="p">)</span>
-<span class="k">print</span> <span class="s2">&quot;Logloss for LogisticRegressionCV: &quot;</span><span class="p">,</span> <span class="n">score_lr</span>    
+<span class="nb">print</span> <span class="s2">&quot;Logloss for LogisticRegressionCV: &quot;</span><span class="p">,</span> <span class="n">score_lr</span>    
 </pre></div>
 
 </div>
@@ -12231,14 +12231,14 @@ Logloss for LogisticRegressionCV:  0.689401056926
 <div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># loop through model</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># loop through model</span>
 <span class="n">predictions</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
 <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]:</span>
 
-    <span class="k">print</span> <span class="s2">&quot;calculating tsne features&quot;</span>
+    <span class="nb">print</span> <span class="s2">&quot;calculating tsne features&quot;</span>
     <span class="n">f_tsne</span> <span class="o">=</span> <span class="n">features_tsne</span><span class="p">(</span><span class="n">all_features</span><span class="p">)</span>
 
-    <span class="k">print</span> <span class="s2">&quot;calculating pca features&quot;</span>
+    <span class="nb">print</span> <span class="s2">&quot;calculating pca features&quot;</span>
     <span class="n">f_pca</span> <span class="o">=</span> <span class="n">features_pca</span><span class="p">(</span><span class="n">all_features</span><span class="p">)</span>
 
     <span class="c1"># merge new tsne and pca features with the original features</span>
@@ -12260,15 +12260,15 @@ Logloss for LogisticRegressionCV:  0.689401056926
     <span class="c1"># set algorithym to logistic regression</span>
     <span class="n">reg</span> <span class="o">=</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">LogisticRegressionCV</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">200</span><span class="o">+</span><span class="n">n</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
 
-    <span class="k">print</span> <span class="s2">&quot;Training model . . .&quot;</span>
+    <span class="nb">print</span> <span class="s2">&quot;Training model . . .&quot;</span>
     <span class="n">model</span> <span class="o">=</span> <span class="n">reg</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span><span class="n">y_train</span><span class="p">)</span>
-    <span class="k">print</span> <span class="s2">&quot;Creating training predictions . . .&quot;</span>
+    <span class="nb">print</span> <span class="s2">&quot;Creating training predictions . . .&quot;</span>
     <span class="n">Y_predp</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
     <span class="n">score_lr</span> <span class="o">=</span> <span class="n">log_loss</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">Y_predp</span><span class="p">)</span>
-    <span class="k">print</span> <span class="s2">&quot;Logloss for LogisticRegressionCV: &quot;</span><span class="p">,</span> <span class="n">score_lr</span>
+    <span class="nb">print</span> <span class="s2">&quot;Logloss for LogisticRegressionCV: &quot;</span><span class="p">,</span> <span class="n">score_lr</span>
 
-    <span class="k">print</span> <span class="s2">&quot;Creating testing predictions . . .&quot;</span>
-    <span class="k">print</span> <span class="p">()</span>    
+    <span class="nb">print</span> <span class="s2">&quot;Creating testing predictions . . .&quot;</span>
+    <span class="nb">print</span> <span class="p">()</span>    
     <span class="n">predictions</span><span class="p">[</span><span class="s1">&#39;pred&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">test_big_features</span><span class="p">)[:,</span><span class="mi">1</span><span class="p">]</span>    
 </pre></div>
 
@@ -12338,7 +12338,7 @@ Creating testing predictions . . .
 <div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># take the arithmetic mean of three predictions</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># take the arithmetic mean of three predictions</span>
 <span class="n">predictions</span><span class="p">[</span><span class="s1">&#39;probability&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">predictions</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="c1"># combine the row ids with the predictions</span>
@@ -12346,13 +12346,13 @@ Creating testing predictions . . .
 
 <span class="c1"># add in the training rows to the test set as Numerai only excepts complete testing data with the included training data</span>
 <span class="n">merged1</span> <span class="o">=</span> <span class="n">merged</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">submit</span><span class="p">,</span> <span class="n">how</span> <span class="o">=</span> <span class="s1">&#39;outer&#39;</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;t_id&#39;</span><span class="p">)</span>
-<span class="n">merged1</span><span class="p">[</span><span class="s1">&#39;probability&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">merged1</span><span class="p">[</span><span class="s1">&#39;target&#39;</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">merged1</span><span class="p">[</span><span class="s1">&#39;probability&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">merged1</span><span class="p">[</span><span class="s1">&#39;target&#39;</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="c1"># take only the columns of interest from the merged data</span>
 <span class="n">finalsubmit</span> <span class="o">=</span> <span class="n">merged1</span><span class="p">[[</span><span class="s1">&#39;t_id&#39;</span><span class="p">,</span> <span class="s1">&#39;probability&#39;</span><span class="p">]]</span>
 
 <span class="c1"># create CSV file</span>
-<span class="n">finalsubmit</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;/Users/jeremycastle/Desktop/numerai/week50/submission/logregcv_loopn1.csv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="n">finalsubmit</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;.../submission/logregcv_loopn1.csv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12366,6 +12366,16 @@ Creating testing predictions . . .
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Submission-Result">Submission Result<a class="anchor-link" href="#Submission-Result">&#182;</a></h2><p>The final submission scored 0.68965 on Numerai’s public leaderboard and has floated between 38th and 120th.  The submission consistently ranks in the 50th-70th place range out of the current 400 competitor submissions.  The goal of producing a model that is in the Top 100 and commands capital has been achieved at least on the public leaderboard.  Will report back next Wednesday (December 7th) to report on the final private leaderboard results.</p>
+<h2 id="Final-Results">Final Results<a class="anchor-link" href="#Final-Results">&#182;</a></h2><p>Through the final three days of the submission continued to slide down the leader board and finished 166/647.  Need to revisit the below steps in the future for improvements.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Future-Steps">Future Steps<a class="anchor-link" href="#Future-Steps">&#182;</a></h2><ol>
 <li>The majority of the code runtime comes from calculating the t-SNE features.  There exists a parallel t-SNE module that I have attempted to install, but have not been able run.  Hopefully this parallel module can reduce the runtime considerably.</li>
 <li>Experiment with different settings in t-SNE, specifically the perplexity features.  </li>
@@ -12383,7 +12393,7 @@ Creating testing predictions . . .
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span> 
+<div class=" highlight hl-ipython3"><pre><span></span> 
 </pre></div>
 
 </div>
